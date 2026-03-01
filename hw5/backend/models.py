@@ -22,7 +22,7 @@ class Post(models.Model):
         return "Post from user: {0}".format(self.user_id)
 
 class Comment(Post):
-    from_comment_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+    from_comment_id = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="parent_comment")
 
     def __str__(self):
         return "Comment from user: {0}".format(self.user_id)
