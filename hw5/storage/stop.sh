@@ -1,0 +1,3 @@
+docker stop my_first_django_project
+docker rm my_first_django_project
+docker image rm my_first_django_project
