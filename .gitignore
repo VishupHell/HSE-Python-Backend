@@ -1,2 +1,5 @@
-.idea/
-.DS_Store
+/.idea
+/venv
+/.DS_Store
+**/__pycache__/
+**/.vscode/

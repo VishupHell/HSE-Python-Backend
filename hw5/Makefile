@@ -1,3 +1,4 @@
+PIP := .venv/bin/pip
 PYTHON3 = python3
 MANAGE = $(PYTHON3) manage.py
 
