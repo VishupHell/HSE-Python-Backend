@@ -20,18 +20,21 @@ from django.urls import path
 
 from rest_framework import routers
 
-from backend.views import UsersAPIViewSet, PostsAPIViewSet, CommentsAPIViewSet
+from backend.views import UsersAPIViewSet, PostsAPIViewSet, CommentsAPIViewSet, signup_view, login_view
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
 
 router = routers.DefaultRouter()
 router.register(r'users', UsersAPIViewSet)
 router.register(r'posts', PostsAPIViewSet)
-router.register(r'users', CommentsAPIViewSet)
+router.register(r'comments', CommentsAPIViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('signup/', signup_view, name='signup'),
+    path('login/', login_view, name='login'),
+    path('admin/', admin.site.urls, name='admin'),
     path('api/schema', SpectacularAPIView.as_view(), name='schema'),
     path('api/swagger', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls), name='api'),
 ]
